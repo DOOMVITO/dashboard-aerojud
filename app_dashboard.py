@@ -4,6 +4,7 @@ import dash
 from dash import html, dcc
 from dash.dependencies import Input, Output
 import plotly.express as px
+import os
 
 # --- CONFIGURAÇÃO SUPABASE ---
 url = "https://zbsqlpfkjnertkeqwfdc.supabase.co"
@@ -92,4 +93,5 @@ def estilo_celula(index):
 
 # --- RODAR APP ---
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port, debug=True)
